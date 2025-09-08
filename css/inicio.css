@@ -1,0 +1,910 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  background: white;
+    width: 100%;   
+    height: 90px;  
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      position: fixed;
+        top: 0;
+        left: 0;
+    z-index: 1000; /* para que quede por encima del resto */
+
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* espacio entre los logos */
+  padding-top: 30px; /* espacio superior */
+  padding-left: 100px;
+}
+
+.logos img {
+  height: 40px; /* ajustá el tamaño de los logos */
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Contenedor de contenido (texto + form) */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin-left: 100px; /* espacio desde la izquierda */
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+/* Texto a la izquierda */
+.hero-text h1 {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 200px;
+}
+
+.hero-text p {
+  font-size: 2rem;
+  max-width: 600px;
+  color: white;
+}
+
+/* Contenedor derecha: banner + form */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+/* Banner arriba del form */
+.form-banner {
+  background-color: rgba(3, 45, 96, 1);
+  color: white;
+  padding: 20px 5px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 40px 40px 0px 40px; /* redondeados menos esquina inferior izquierda */
+  font-size: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: rgba(26, 159, 218, 1);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+    font-weight: bold;
+}
+
+.contact-form button:hover {
+  background-color: #0099cc;
+}
+
+/* Imagen de fondo */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Gradiente encima de la imagen */
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background: linear-gradient(to right, rgba(26, 159, 218, 1), rgba(0, 200, 255, 0));
+  z-index: 2;
+}
+
+/* CLIETNES */
+
+.clients-section {
+  background-color: white;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.clients-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: rgba(26, 159, 218, 1);
+  font-weight: 400;
+margin-bottom: 40px;
+}
+
+/* Wrapper con overflow oculto */
+.clients-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Carrusel animado */
+.clients-carousel {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scrollCarousel 20s linear infinite;
+}
+
+/* Logos */
+.clients-carousel img {
+  height: 80px;
+  width: auto;
+  flex: 0 0 auto;
+}
+
+/* Animación de scroll infinito */
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* SERVICIOS */
+
+.servicios {
+  background-color: #ffffff; /* fondo suave */
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.servicios h2 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: rgba(26, 159, 218, 1);
+    font-weight: 400;
+}
+
+.servicios h3 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: rgba(23, 38, 109, 1);
+}
+
+/* Contenedor de tarjetas */
+.servicios .cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjetas individuales */
+.servicios .card {
+  background: rgba(245, 252, 255, 1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicios .card:hover {
+  transform: translateY(-5px); /* se mueve hacia arriba 10px */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* sombra más pronunciada */
+}
+
+.servicios .card img {
+  height: 90px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.servicios .card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: rgba(23, 38, 109, 1);
+}
+
+.servicios .card p {
+  font-size: 1rem;
+    color: rgba(23, 38, 109, 1);
+
+}
+
+/* INDUSTRIAS */
+
+.industries-section {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.industries-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color:rgba(3, 45, 96, 1);
+}
+
+.industries-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  color: rgba(26, 159, 218, 1);
+    font-weight: 400;
+}
+
+.industries-content {
+  display: flex;
+  gap: 10px;
+  max-width: 2000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Cuadro de información */
+.industry-info {
+  background: rgba(26, 159, 218, 1);
+  padding: 40px 30px; /* más espacio vertical */
+  border-radius: 12px;
+  flex: 1 1 50%;
+  min-width: 300px;
+  min-height: 400px; /* altura mínima más vertical */
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* contenido alineado arriba */
+}
+
+
+.industry-info h4 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.industry-info p {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+    margin-left: 20px;
+
+}
+
+.industry-info ul {
+  list-style: disc;
+  padding-left: 10px;
+    color: #ffffff;
+      font-size: 1.5rem;
+        margin-left: 20px;
+}
+
+/* Lista de selección de industrias */
+.industry-selector {
+  flex: 1 1 40%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+   text-align: left;   
+   padding-top: 100px;
+   padding-left: 50px;
+}
+
+.industry-selector li {
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  font-weight: normal;
+  color: #333;
+    font-size: 1.5rem;
+
+}
+
+.industry-selector li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background 0.3s;
+}
+
+.industry-selector li.active::before {
+  background-color: #1a9fda; /* celeste */
+}
+
+.industry-selector li.active {
+  font-weight: bold;
+}
+
+/* CONTACTANOS */
+
+.salesforce-cta {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.cta-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  background: linear-gradient(to top, rgba(193, 229, 255, 1), rgb(255, 255, 255));
+  z-index: 2;
+}
+
+/* Imagen de fondo */
+.cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+
+/* Contenido centrado */
+.cta-content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: rgba(23, 38, 109, 1);
+}
+
+.cta-content p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: rgba(26, 159, 218, 1);
+}
+
+/* Formulario centrado */
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.cta-form input,
+.cta-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.cta-form button {
+  padding: 12px;
+  background-color: rgba(26, 159, 218, 1);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-form button:hover {
+  background-color: #0099cc;
+}
+
+/* FOOTER */
+.site-footer {
+  background-color: #0a2342; /* azul oscuro */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+.footer-left, .footer-right {
+  flex: 1 1 300px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.footer-logos img {
+  height: 50px;
+  margin-right: 15px;
+}
+
+.footer-tagline {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  max-width: 250px;
+}
+
+.footer-socials a img {
+  height: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.footer-socials a img:hover {
+  transform: scale(1.1);
+}
+
+/* Contacto */
+.footer-right h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-right li img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+
+/* MEDIA QUERIES */
+
+/* Laptop */
+@media (max-width: 1024px) {
+nav {
+    height: 80px;  
+
+}
+
+.logos {
+  gap: 20px; /* espacio entre los logos */
+  padding-top: 20px; /* espacio superior */
+  padding-left: 80px;
+}
+
+.logos img {
+  height: 30px; /* ajustá el tamaño de los logos */
+}
+
+/* HERO */
+.hero {
+  height: 110vh;
+}
+
+/* Contenedor de contenido (texto + form) */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: relative;
+  gap: 40px;
+  max-width: 1000px;
+  margin-left: 70px; /* espacio desde la izquierda */
+  padding: 20px;
+}
+
+/* Texto a la izquierda */
+.hero-text h1 {
+  font-size: 2.5rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+}
+
+/* Contenedor derecha: banner + form */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+    margin-top: 180px;
+    margin-left: 10px;
+}
+
+/* INDUSTRIAS */
+
+.industries-section {
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.industries-content {
+  gap: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Cuadro de información */
+.industry-info {
+  background: rgba(26, 159, 218, 1);
+  padding: 40px 30px; /* más espacio vertical */
+  border-radius: 12px;
+  flex: 1 1 50%;
+  min-width: 300px;
+  min-height: 400px; /* altura mínima más vertical */
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* contenido alineado arriba */
+}
+
+/* Lista de selección de industrias */
+.industry-selector {
+  flex: 1 1 40%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+   text-align: left;   
+   padding-top: 100px;
+   margin-left: 20px;
+}
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+
+nav {
+    height: 70px; 
+
+}
+
+.logos {
+  gap: 20px; /* espacio entre los logos */
+  padding-top: 20px; /* espacio superior */
+  padding-left: 80px;
+}
+
+.logos img {
+  height: 30px; /* ajustá el tamaño de los logos */
+}
+
+/* HERO */
+.hero {
+  height: 120vh;
+  text-align: center;
+}
+
+/* Contenedor de contenido (texto + form) */
+.hero-content {
+  max-width: 700px;
+  margin-left: 100px; /* espacio desde la izquierda */
+  padding: 20px;}
+
+/* Texto a la izquierda */
+.hero-text h1 {
+  font-size: 3rem;
+  color: white;
+  margin-top: 150px;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  max-width: 700px;
+}
+
+/* Contenedor derecha: banner + form */
+.form-container {
+  gap: 15px;
+    margin-top: 0px;
+    margin-left: 100px;
+
+}
+
+.contact-form{
+  background: #f1eded;
+}
+
+
+/* INDUSTRIAS */
+
+.industries-content {
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+
+/* Lista de selección de industrias */
+.industry-selector {
+  flex: 1 1 40%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+   text-align: left;   
+   padding-top: 10px;
+   padding-left: 150px;
+}
+}
+
+/* Mobile */
+@media (max-width: 375px) {
+
+nav {
+    height: 60px; 
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espacio entre los logos */
+  padding-top: 20px; /* espacio superior */
+}
+
+.logos img {
+  height: 25px; /* ajustá el tamaño de los logos */
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 120vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Contenedor de contenido (texto + form) */
+.hero-content {
+  max-width: 300px;
+  text-align: left;
+  margin-left: 15px;
+}
+
+/* Texto a la izquierda */
+.hero-text h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-top: 90px;
+  margin-left: 30px;
+}
+
+.hero-text p {
+  font-size: 0.9rem;
+  max-width: 300px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.cloud-icons {
+  margin-left: 30px;
+}
+
+/* Contenedor derecha: banner + form */
+.form-container {
+  gap: 15px;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+/* Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgb(245, 241, 241);
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+/* CLIENTES */
+
+.clients-section{
+  margin-bottom: 10px;
+}
+
+/* SERVICIOS */
+
+.servicios {
+  background-color: #ffffff; /* fondo suave */
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.servicios h2 {
+  font-size: 1rem;
+  margin-bottom: 0px;
+  color: rgba(26, 159, 218, 1);
+    font-weight: 400;
+}
+
+.servicios h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgba(23, 38, 109, 1);
+}
+
+/* Contenedor de tarjetas */
+.servicios .cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Tarjetas individuales */
+.servicios .card {
+  padding: 10px;
+}
+
+.servicios .card img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 5px;
+}
+
+.servicios .card h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.servicios .card p {
+  font-size: 0.8rem;
+
+}
+
+/* INDUSTRIAS */
+
+.industries-section {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.industries-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color:rgba(3, 45, 96, 1);
+}
+
+.industries-section h3 {
+  font-size: 0.8rem;
+}
+
+.industries-content {
+  display: flex;
+  gap: 0px;
+  max-width: 300px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Cuadro de información */
+.industry-info {
+  min-width: 250px;
+}
+
+
+.industry-info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.industry-info p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+    margin-left: 20px;
+
+}
+
+.industry-info ul {
+  list-style: disc;
+  padding-left: 10px;
+    color: #ffffff;
+      font-size: 1rem;
+        margin-left: 20px;
+}
+
+/* Lista de selección de industrias */
+.industry-selector {
+  flex: 1 1 40%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+   text-align: left;   
+   padding-top: 10px;
+}
+
+.industry-selector li {
+    font-size: 1rem;
+
+}
+
+/* Contacto */
+.cta-content h2{
+  font-size: 1.5rem;
+}
+
+/* FOOTER */
+
+.footer-left, .footer-right {
+  flex: 1 1 300px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+}
