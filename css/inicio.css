@@ -520,611 +520,282 @@ margin-bottom: 40px;
 }
 
 
+
 /* MEDIA QUERIES */
 
 /* Laptop */
-@media (max-width: 1024px) {
-nav {
-    height: 80px;  
+@media (min-width: 961px) and (max-width: 1023px) {
+  /* HERO */
+  .hero-content {
+    flex-direction: column;   /* apila texto y form */
+    align-items: center;      /* centra horizontalmente */
+    margin-left: 5%;           /* saca margen fijo */
+    gap: 50px;                /* espacio entre bloques */
+  }
 
+  .hero-text h1 {
+    font-size: 2.5rem;          /* un poco más chico */
+    margin-top: 120px;        /* baja el espacio */
+    text-align: left;
+  }
+
+  .hero-text p {
+    font-size: 1.5rem;
+    text-align: left;
+    max-width: 90%;
+  }
+
+  .form-container {
+    margin: 0;                /* limpia márgenes laterales */
+    width: 40%;               /* ocupa casi todo el ancho */
+    align-items: center;
+    margin-top: 100px;
+  }
+
+  .contact-form {
+    min-width: auto;          /* evita desborde fijo de 300px */
+    width: 100%;              /* ajusta al contenedor */
+    max-width: 400px;
+  }
 }
 
-.logos {
-  gap: 20px; /* espacio entre los logos */
-  padding-top: 20px; /* espacio superior */
-  padding-left: 80px;
-}
 
-.logos img {
-  height: 30px; /* ajustá el tamaño de los logos */
-}
+/* Tablets grandes / laptops pequeñas */
+@media (min-width: 769px) and (max-width: 960px) {
+  /* HERO */
+  .hero-content {
+    flex-direction: column;   /* apila texto y form */
+    align-items: center;      /* todo centrado */
+    margin-left: 0;           /* margen fuera */
+    gap: 20px;
+  }
 
-/* HERO */
-.hero {
-  height: 110vh;
-}
+  .cloud-icons{
+    max-width: 300px;
+  }
 
-/* Contenedor de contenido (texto + form) */
-.hero-content {
-  position: relative;
-  z-index: 3;
-  display: relative;
-  gap: 40px;
-  max-width: 1000px;
-  margin-left: 70px; /* espacio desde la izquierda */
-  padding: 20px;
-}
-
-/* Texto a la izquierda */
-.hero-text h1 {
-  font-size: 2.5rem;
-}
-
-.hero-text p {
-  font-size: 1.5rem;
-}
-
-/* Contenedor derecha: banner + form */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  .hero-text h1 {
+    font-size: 2rem;          /* más compacto */
     margin-top: 180px;
-    margin-left: 10px;
+    text-align: left;
+    max-width: 90%;
+  }
+
+  .hero-text p {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  .form-container {
+    width: 40%;               /* formulario más ancho */
+    margin-top: 150px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 400px;         /* un poco más grande que en 961–1023 */
+  }
 }
 
-/* INDUSTRIAS */
 
-.industries-section {
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.industries-content {
-  gap: 10px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* Cuadro de información */
-.industry-info {
-  background: rgba(26, 159, 218, 1);
-  padding: 40px 30px; /* más espacio vertical */
-  border-radius: 12px;
-  flex: 1 1 50%;
-  min-width: 300px;
-  min-height: 400px; /* altura mínima más vertical */
-  text-align: left;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* contenido alineado arriba */
-}
-
-/* Lista de selección de industrias */
-.industry-selector {
-  flex: 1 1 40%;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-   text-align: left;   
-   padding-top: 100px;
-   margin-left: 20px;
-}
-}
 
 /* Tablet */
-@media (max-width: 768px) {
+@media (min-width: 641px) and (max-width: 768px) {
+  /* HERO */
+  .hero-content {
+    flex-direction: column;   /* todo apilado */
+    align-items: center;      
+    margin-left: 10%;     
+    gap: 30px;
+    padding: 0 20px;       /* margen interno para respirar */
+  }
 
-nav {
-    height: 70px; 
+  .hero-text h1 {
+    font-size: 1.8rem;        /* más chico */
+    margin-top: 80px;
+    padding-top: 30px;
+    text-align: center;
+    max-width: 100%;
+
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .form-container {
+    width: 100%;              /* formulario ocupa todo */
+    margin-top: 10px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 100%;          /* full ancho, sin límites */
+  }
+}
+
+
+
+
+/* Mobile XL */
+@media (min-width: 431px) and (max-width: 640px) {
+  /* HERO */
+
+  nav {
+    height: 60px; 
 
 }
 
 .logos {
-  gap: 20px; /* espacio entre los logos */
-  padding-top: 20px; /* espacio superior */
-  padding-left: 80px;
+  padding-top: 15px; /* espacio superior */
+
 }
 
 .logos img {
   height: 30px; /* ajustá el tamaño de los logos */
 }
 
-/* HERO */
-.hero {
-  height: 120vh;
-  text-align: center;
-}
+  .hero-content {
+    align-items: center;      
+    margin-left: 0;           /* ❌ sacamos el margen que empuja */
+    gap: 30px;
+    padding: 0 20px;          /* margen interno para respirar */
+  }
 
-/* Contenedor de contenido (texto + form) */
-.hero-content {
-  max-width: 700px;
-  margin-left: 100px; /* espacio desde la izquierda */
-  padding: 20px;}
+  .hero-text {
+    order: 1;                 /* texto primero */
+    width: 100%;
+    text-align: center;
+  }
 
-/* Texto a la izquierda */
-.hero-text h1 {
-  font-size: 3rem;
-  color: white;
-  margin-top: 150px;
-}
+  .hero-text h1 {
+    font-size: 1.8rem;
+    margin-top: 80px;
+    padding-top: 10px;
+    text-align: center;
+    max-width: 100%;
+  }
 
-.hero-text p {
-  font-size: 1.5rem;
-  max-width: 700px;
-}
+  .hero-text p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 100%;
+  }
 
-/* Contenedor derecha: banner + form */
-.form-container {
-  gap: 15px;
-    margin-top: 0px;
-    margin-left: 100px;
+  .hero .cloud-icons img{
+    height: 40px;
+  }
 
-}
+  .form-container {
+    order: 2;                 /* form después */
+    width: 100%;              /* ocupa todo el ancho */
+    max-width: 300px;
+    margin: 0 auto;           /* centrado */
+    align-items: center;
+  }
 
-.contact-form{
-  background: #f1eded;
-}
+  .contact-form {
+    width: 100%;
+    max-width: 100%;
+  }
 
-
-/* INDUSTRIAS */
-
-.industries-content {
-  display: flex;
-  gap: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-
-/* Lista de selección de industrias */
-.industry-selector {
-  flex: 1 1 40%;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-   text-align: left;   
-   padding-top: 10px;
-   padding-left: 150px;
-}
-}
-
-/* Mobile XL */
-@media (max-width: 430px) {
-
-nav {
-    height: 60px; 
-}
-
-.logos {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* espacio entre los logos */
-  padding-top: 20px; /* espacio superior */
-}
-
-.logos img {
-  height: 25px; /* ajustá el tamaño de los logos */
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  height: 120vh;
-  display: flex;
-  overflow: hidden;
-}
-
-/* Contenedor de contenido (texto + form) */
-.hero-content {
-  max-width: 400px;
-  text-align: left;
-  margin-left: 20px;
-  gap: 0px;
-}
-
-/* Texto a la izquierda */
-.hero-text h1 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  margin-top: 90px;
-  text-align: center;
-}
-
-.hero-text p {
-  font-size: 0.9rem;
-  max-width: 300px;
-  margin-bottom: 30px;
-  margin-left: 30px;
-   text-align: center;
-}
-
-.cloud-icons {
-  text-align: center;
-}
-
-/* Contenedor derecha: banner + form */
-.form-container {
-  gap: 15px;
-  margin-top: 0px;
-  margin-left: 20px;
-}
-
-/* Formulario */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: rgb(245, 241, 241);
-  padding: 10px;
-  border-radius: 8px;
-  min-width: 300px;
-}
-
-/* CLIENTES */
-
-.clients-section{
-  margin-bottom: 10px;
-}
-
-/* SERVICIOS */
-
-.servicios {
-  background-color: #ffffff; /* fondo suave */
-  padding: 100px 20px;
-  text-align: center;
-}
-
-.servicios h2 {
-  font-size: 1rem;
-  margin-bottom: 0px;
-  color: rgba(26, 159, 218, 1);
-    font-weight: 400;
-}
-
-.servicios h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: rgba(23, 38, 109, 1);
-}
-
-/* Contenedor de tarjetas */
-.servicios .cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-/* Tarjetas individuales */
-.servicios .card {
-  padding: 10px;
-}
-
-.servicios .card img {
-  height: 60px;
-  width: auto;
-  margin-bottom: 5px;
-}
-
-.servicios .card h4 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.servicios .card p {
-  font-size: 0.8rem;
-
-}
-
-/* INDUSTRIAS */
-
-.industries-section {
-  background-color: #ffffff;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.industries-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color:rgba(3, 45, 96, 1);
-}
-
-.industries-section h3 {
-  font-size: 0.8rem;
-}
-
-.industries-content {
-  display: flex;
-  gap: 0px;
-  max-width: 300px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-/* Cuadro de información */
-.industry-info {
-  min-width: 250px;
+  .servicios .cards-container {
+    display: block;
+  }
 }
 
 
-.industry-info h4 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-  margin-left: 20px;
-}
-
-.industry-info p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  color: #ffffff;
-    margin-left: 20px;
-
-}
-
-.industry-info ul {
-  list-style: disc;
-  padding-left: 10px;
-    color: #ffffff;
-      font-size: 1rem;
-        margin-left: 20px;
-}
-
-/* Lista de selección de industrias */
-.industry-selector {
-  flex: 1 1 40%;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-   text-align: left;   
-   padding-top: 10px;
-}
-
-.industry-selector li {
-    font-size: 1rem;
-
-}
-
-/* Contacto */
-.cta-content h2{
-  font-size: 1.5rem;
-}
-
-/* FOOTER */
-
-.footer-left, .footer-right {
-  flex: 1 1 300px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-}
-
-.footer-logos img{
-  height: 30px;
-}
-
-}
 
 /* Mobile */
-@media (max-width: 375px) {
+@media (min-width: 230px) and (max-width: 430px) {
+  /* HERO */
 
-nav {
-    height: 60px; 
+  nav {
+    height: 40px; 
 }
 
 .logos {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* espacio entre los logos */
-  padding-top: 20px; /* espacio superior */
+  padding-top: 10px; /* espacio superior */
+  padding-left: 20px;
 }
 
 .logos img {
-  height: 25px; /* ajustá el tamaño de los logos */
+  height: 20px; /* ajustá el tamaño de los logos */
 }
 
-/* HERO */
-.hero {
-  position: relative;
-  height: 120vh;
-  display: flex;
-  overflow: hidden;
-}
+  .hero-content {
+    align-items: center;      
+    margin-left: 0;           /* ❌ sacamos el margen que empuja */
+    gap: 30px;
+    padding: 0 20px;          /* margen interno para respirar */
+  }
 
-/* Contenedor de contenido (texto + form) */
-.hero-content {
-  max-width: 300px;
-  text-align: left;
-  margin-left: 15px;
-}
+  .hero-text {
+    order: 1;                 /* texto primero */
+    width: 100%;
+    text-align: center;
+  }
 
-/* Texto a la izquierda */
-.hero-text h1 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  margin-top: 90px;
-  margin-left: 30px;
-}
+  .hero-text h1 {
+    font-size: 1.3rem;
+    margin-top: 80px;
+    padding-top: 0px;
+    text-align: center;
+    max-width: 100%;
+  }
 
-.hero-text p {
-  font-size: 0.9rem;
-  max-width: 300px;
-  margin-bottom: 30px;
-  margin-left: 30px;
-}
+  .hero-text p {
+    font-size: 0.8rem;
+    text-align: center;
+    max-width: 100%;
+  }
 
-.cloud-icons {
-  margin-left: 30px;
-}
+  .hero .cloud-icons img{
+    height: 30px;
+  }
 
-/* Contenedor derecha: banner + form */
-.form-container {
-  gap: 15px;
-  margin-top: 0px;
-  margin-left: 0px;
-}
+  .form-banner {
+    font-size: 16px;
+    padding: 10px 5px;
+  }
 
-/* Formulario */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: rgb(245, 241, 241);
-  padding: 10px;
-  border-radius: 8px;
-  min-width: 300px;
-}
+  .form-container {
+    order: 2;                 /* form después */
+    width: 80%;              /* ocupa todo el ancho */
+    margin: 0 auto;           /* centrado */
+    align-items: center;
+  }
 
-/* CLIENTES */
+  .contact-form {
+    width: 80%;
+    max-width: 80%;
+  }
 
-.clients-section{
-  margin-bottom: 10px;
-}
+  
 
-/* SERVICIOS */
+  .servicios .cards-container {
+    display: block;
+  }
 
-.servicios {
-  background-color: #ffffff; /* fondo suave */
-  padding: 100px 20px;
-  text-align: center;
-}
+  .industry-info{
+    min-width: 100px;
+  }
 
-.servicios h2 {
-  font-size: 1rem;
-  margin-bottom: 0px;
-  color: rgba(26, 159, 218, 1);
-    font-weight: 400;
-}
-
-.servicios h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: rgba(23, 38, 109, 1);
-}
-
-/* Contenedor de tarjetas */
-.servicios .cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-/* Tarjetas individuales */
-.servicios .card {
-  padding: 10px;
-}
-
-.servicios .card img {
-  height: 60px;
-  width: auto;
-  margin-bottom: 5px;
-}
-
-.servicios .card h4 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.servicios .card p {
-  font-size: 0.8rem;
-
-}
-
-/* INDUSTRIAS */
-
-.industries-section {
-  background-color: #ffffff;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.industries-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color:rgba(3, 45, 96, 1);
-}
-
-.industries-section h3 {
-  font-size: 0.8rem;
-}
-
-.industries-content {
-  display: flex;
-  gap: 0px;
-  max-width: 300px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-/* Cuadro de información */
-.industry-info {
-  min-width: 250px;
-}
-
-
-.industry-info h4 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-  margin-left: 20px;
-}
-
-.industry-info p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  color: #ffffff;
-    margin-left: 20px;
-
-}
-
-.industry-info ul {
-  list-style: disc;
-  padding-left: 10px;
-    color: #ffffff;
-      font-size: 1rem;
-        margin-left: 20px;
-}
-
-/* Lista de selección de industrias */
-.industry-selector {
-  flex: 1 1 40%;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-   text-align: left;   
-   padding-top: 10px;
-}
-
-.industry-selector li {
+  .industry-info p{
     font-size: 1rem;
+  }
 
-}
+  .industry-info ul{
+    font-size: 1rem;
+  }
 
-/* Contacto */
-.cta-content h2{
-  font-size: 1.5rem;
-}
-
-/* FOOTER */
-
-.footer-left, .footer-right {
-  flex: 1 1 300px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-}
-
+  .footer-left, .footer-right{
+    margin-left: 0px;
+  }
 }
