@@ -759,7 +759,7 @@ margin-bottom: 40px;
 
   .hero-content {
     align-items: center;      
-    margin-left: 0;           /* ❌ sacamos el margen que empuja */
+    margin-left: 0;           /*  sacamos el margen que empuja */
     gap: 30px;
     padding: 0 20px;          /* margen interno para respirar */
   }
