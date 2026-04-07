@@ -1,265 +1,460 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M5F48LMJ');</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/inicio.css">
-  <title>Cambalache Technologies</title>
-  <link rel="icon" href="img/favicon.png" type="image/png">
+  <title>Cambalache Technologies — Salesforce World Tour 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #00A1E0;
+      --dark:    #032D60;
+      --darker:  #010F21;
+      --white:   #FFFFFF;
+      --offwhite:#F0F4FA;
+      --gray:    #8A9BB5;
+      --accent:  #00C9A7;
+      --radius:  14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--darker);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(1,15,33,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,161,224,0.15);
+    }
+    nav .logo-img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+    nav .badge {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--blue);
+      border: 1px solid rgba(0,161,224,0.4);
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 52px 24px 40px;
+      overflow: hidden;
+    }
+    .hero-bg-glow {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(0,161,224,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-bg-glow2 {
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(0,201,167,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .event-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,161,224,0.12);
+      border: 1px solid rgba(0,161,224,0.3);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 22px;
+      letter-spacing: 0.3px;
+    }
+    .event-pill .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    h1 .highlight {
+      color: var(--blue);
+      position: relative;
+    }
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 360px;
+    }
+
+    /* ── CLOUDS ── */
+    .clouds-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .cloud-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.3px;
+    }
+    .cloud-tag.active {
+      border-color: rgba(0,161,224,0.5);
+      color: var(--blue);
+      background: rgba(0,161,224,0.08);
+    }
+
+    /* ── STATS ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+    }
+    .stat-card .num {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-card .num span { color: var(--blue); }
+    .stat-card .label {
+      font-size: 12px;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      background: var(--offwhite);
+      border-radius: 28px 28px 0 0;
+      padding: 36px 24px 48px;
+      color: var(--dark);
+    }
+    .form-header {
+      margin-bottom: 28px;
+    }
+    .form-header .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .form-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--dark);
+    }
+    .form-header p {
+      font-size: 14px;
+      color: #5A6E8A;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field-group label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #4A5E78;
+      letter-spacing: 0.3px;
+    }
+    .contact-form input,
+    .contact-form select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #D8E3EF;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,161,224,0.12);
+    }
+    .contact-form input::placeholder { color: #A0B0C5; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 17px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:hover { background: #0090C8; }
+
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: #8A9BB5;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── CLIENTS ── */
+    .clients-section {
+      background: var(--offwhite);
+      padding: 0 24px 40px;
+    }
+    .clients-section .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8A9BB5;
+      text-align: center;
+      padding-top: 8px;
+      margin-bottom: 20px;
+    }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .client-chip {
+      background: var(--white);
+      border: 1px solid #E2EAF4;
+      border-radius: 8px;
+      padding: 10px 6px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #4A5E78;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--darker);
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer img { display: block; margin: 0 auto 12px; }
+    footer p {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    footer a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .fade-up:nth-child(1) { animation-delay: 0.05s; }
+    .fade-up:nth-child(2) { animation-delay: 0.15s; }
+    .fade-up:nth-child(3) { animation-delay: 0.25s; }
+    .fade-up:nth-child(4) { animation-delay: 0.35s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (min-width: 480px) {
+      h1 { font-size: 42px; }
+      .stats-row { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5F48LMJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17528906790"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-17528906790');
-</script>
-<nav>
-    <div class="logos">
-    <img src="img/ctech1920png 1.png" alt="Logo de la empresa">
-    <img src="img/image 1.png" alt="Logo Partner Salesforce">
-  </div>
-</nav>
-<main>
-  <section class="hero">
-    <img src="img/background.jpg" alt="Fondo" class="hero-bg">
-    <div class="gradient"></div>
 
-    <div class="hero-content">
-      <!-- Texto a la izquierda -->
-      <div class="hero-text">
-        <h1>Transforma tu negocio <br>con Salesforce</h1>
-        <p>Somos Salesforce Consulting Partner y <br>acompañamos a tu empresa en cada<br>etapa de la transformación digital.</p>
-            <div class="cloud-icons">
-        <img src="img/salescloud.png" alt="Sales Cloud">
-        <img src="img/servicecloud.png" alt="Service Cloud">
-        <img src="img/marketing.png" alt="Marketing Cloud">
-        <img src="img/consumergoods.png" alt="Consumer Goods Cloud">
-        <img src="img/agentforce.png" alt="Agentforce">
-        <img src="img/mulesoft.png" alt="MuleSoft">
-        </div>
-  
+  <nav>
+    <img src="img/ctech1920png 1.png" alt="Cambalache Technologies" class="logo-img">
+    <div class="badge">Salesforce Partner</div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-bg-glow2"></div>
+
+    <div class="event-pill fade-up">
+      <span class="dot"></span>
+      Salesforce World Tour · Buenos Aires 2026
     </div>
 
-      <!-- Columna derecha: banner + formulario -->
-      <div class="form-container">
-  <div class="form-banner">Obtené una demo sin costo</div>
-  <form class="contact-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5w000003XOQ6" method="POST">
-    
-    <!-- Campos obligatorios de Salesforce -->
-    <input type="hidden" name="oid" value="00D5w000003XOQ6">
-    <input type="hidden" name="retURL" value="https://cambalachetechnologies.github.io/landingpage/subpaginas/gracias">
+    <h1 class="fade-up">
+      Nuestro negocio<br>
+      es <span class="highlight">transformar</span><br>
+      el tuyo.
+    </h1>
 
-    <input type="hidden" name="lead_source" value="Landing">
+    <p class="hero-sub fade-up">
+      Somos Consulting Partner con más de 20 años de experiencia implementando Salesforce en LATAM. Hablemos hoy.
+    </p>
 
-    <!-- Campos del formulario con validaciones HTML5 -->
-    <input type="text" name="first_name" placeholder="Nombre" required pattern="[A-Za-z\s]+" title="Ingrese solo letras">
-    <input type="text" name="last_name" placeholder="Apellido" required pattern="[A-Za-z\s]+" title="Ingrese solo letras">
-    <input type="email" name="email" placeholder="Correo" required
-      pattern="^[a-zA-Z0-9._%+-]+@(?!gmail\.com$)(?!yahoo\.com$)(?!hotmail\.com$)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-      title="Ingrese un correo empresarial, no se aceptan Gmail, Hotmail o Yahoo">
-    <input type="text" name="company" placeholder="Empresa">
-    <textarea name="description" placeholder="Mensaje" rows="4"></textarea>
+    <div class="clouds-row fade-up">
+      <span class="cloud-tag active">Consumer Goods</span>
+            <span class="cloud-tag active">Field Service</span>
+      <span class="cloud-tag active">Agentforce</span>
+      <span class="cloud-tag active">MuleSoft</span>
+      <span class="cloud-tag active">Sales Cloud</span>
+      <span class="cloud-tag active">Service Cloud</span>
+    </div>
 
-    <button type="submit">Hablar con un especialista</button>
-  </form>
-</div>
+    <div class="stats-row">
+      <div class="stat-card fade-up">
+        <div class="num">+120<span>.</span></div>
+        <div class="label">Proyectos en LATAM</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="num">20<span>+</span></div>
+        <div class="label">Años de experiencia en consultoría</div>
+      </div>
     </div>
   </section>
-</main>
-<section class="clients-section">
-  <h2>Confían en nosotros</h2>
 
-  <div class="clients-carousel-wrapper">
-    <div class="clients-carousel">
-      <img src="img/lavirginia.png" alt="Cliente 1">
-      <img src="img/claro.png" alt="Cliente 2">
-      <img src="img/bibank.png" alt="Cliente 3">
-      <img src="img/cedisur.png" alt="Cliente 4">
-      <img src="img/paladini.png" alt="Cliente 5">
-      <img src="img/eduardoberaza.png" alt="Cliente 6">
-       <img src="img/grupogrisi.png" alt="Cliente 7">
-        <img src="img/karcher.png" alt="Cliente 8">
-        <img src="img/luker.png" alt="Cliente 9">
-        <img src="img/maximstore.png" alt="Cliente 10">
-        <img src="img/multiradio.png" alt="Cliente 11">
-        <img src="img/nequi.png" alt="Cliente 12">
-        <img src="img/pae.png" alt="Cliente 13">
-        <img src="img/quick.png" alt="Cliente 14">
-        <img src="img/strix.png" alt="Cliente 15">
-        <img src="img/vitalcan.png" alt="Cliente 16">
-    </div>
-  </div>
-</section>
-<section class="servicios">
-  <h2>Más de 20 años de experiencia en consultoría</h2>
-  <h3>Nosotros sabemos “cómo”</h3>
-
-  <div class="cards-container">
-    <!-- Tarjeta 1 -->
-    <div class="card">
-      <img src="img/proyectos.png" alt="Icono 1">
-      <h4>Proyectos a medida</h4>
-      <p>Implementamos Salesforce, adaptadas a tus procesos y objetivos de negocio</p>
+  <section class="form-section">
+    <div class="form-header">
+      <div class="eyebrow">Agendá tu demo</div>
+      <h2>Conversemos sobre tu proyecto</h2>
+      <p>Completá el formulario y un especialista te contacta en menos de 24 horas.</p>
     </div>
 
-    <!-- Tarjeta 2 -->
-    <div class="card">
-      <img src="img/quickstart.png" alt="Icono 2">
-      <h4>Quick Start</h4>
-      <p>Puestas en marcha rápidas y efectivas, para comenzar a trabajar con Salesforce en pocas semanas y con inversión controlada</p>
+    <form class="contact-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5w000003XOQ6" method="POST">
+      <input type="hidden" name="oid" value="00D5w000003XOQ6">
+      <input type="hidden" name="retURL" value="https://cambalachetechnologies.github.io/landingpage/subpaginas/gracias">
+      <input type="hidden" name="lead_source" value="World Tour 2026">
+
+      <div class="field-group">
+        <label for="first_name">Nombre</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="field-group">
+        <label for="last_name">Apellido</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Tu apellido" required>
+      </div>
+
+      <div class="field-group">
+        <label for="title">Cargo</label>
+        <input type="text" id="title" name="title" placeholder="Ej. Director Comercial" required>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Correo corporativo</label>
+        <input type="email" id="email" name="email" placeholder="nombre@empresa.com" required
+          pattern="^[a-zA-Z0-9._%+-]+@(?!gmail\.com$)(?!yahoo\.com$)(?!hotmail\.com$)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          title="Ingresá un correo corporativo">
+      </div>
+
+      <div class="field-group">
+        <label for="phone">Teléfono / WhatsApp</label>
+        <input type="tel" id="phone" name="phone" placeholder="+54 9 11 ..." required>
+      </div>
+
+      <div class="field-group">
+        <label for="company">Empresa</label>
+        <input type="text" id="company" name="company" placeholder="Nombre de tu empresa" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Agendar demo gratuita →</button>
+
+      <p class="form-note">Sin compromiso. Te contactamos en menos de 24 hs.</p>
+    </form>
+  </section>
+
+  <section class="clients-section">
+    <div class="eyebrow">Confían en nosotros</div>
+    <div class="clients-grid">
+      <div class="client-chip">La Virginia</div>
+      <div class="client-chip">Claro</div>
+      <div class="client-chip">Paladini</div>
+      <div class="client-chip">Grupo Grisi</div>
+      <div class="client-chip">Bagués</div>
+      <div class="client-chip">Luker</div>
+      <div class="client-chip">Nequi</div>
+      <div class="client-chip">Vitalcan</div>
     </div>
+  </section>
 
-    <!-- Tarjeta 3 -->
-    <div class="card">
-      <img src="img/abonos.png" alt="Icono 3">
-      <h4>Abonos mensuales</h4>
-      <p>Evolución continua de la plataforma con soporte, mejoras y acompañamiento estratégico</p>
-    </div>
+  <footer>
+    <img src="img/ctech1920png 1.png" alt="Cambalache Technologies" style="height:28px;width:auto;margin-bottom:12px;opacity:0.9;">
+    <p>info@c-tech.com.ar · <a href="tel:+5491151246444">+54 9 11 5124-6444</a></p>
+    <p style="margin-top:6px;">Buenos Aires, Argentina</p>
+  </footer>
 
-    <!-- Tarjeta 4 -->
-    <div class="card">
-      <img src="img/integraciones.png" alt="Icono 4">
-      <h4>Integraciones</h4>
-      <p>Integramos Salesforce con Twilio, Tuvis, ERP, SAP, otros.</p>
-    </div>
-
-    <!-- Tarjeta 5 -->
-    <div class="card">
-      <img src="img/addons.png" alt="Icono 5">
-      <h4>Salesforce “add-ons”</h4>
-      <p>Digital Engagement, Maps, Mulesoft, Knowledge, Einstein, CRM Analytics</p>
-    </div>
-
-    <!-- Tarjeta 6 -->
-    <div class="card">
-      <img src="img/aplicaciones.png" alt="Icono 6">
-      <h4>Aplicaciones</h4>
-      <p>Desarrollamos aplicaciones sobre el ecosistema de Salesforce, expertos en DevOps</p>
-    </div>
-  </div>
-</section>
-<section class="industries-section">
-  <h2>Experiencia en múltiples industrias</h2>
-  <h3>Cada sector tiene sus particularidades, y nuestro equipo</br>entiende cómo adaptar Salesforce a la realidad de tu negocio</h3>
-
-  <div class="industries-content">
-    <!-- Cuadro de información a la izquierda -->
-    <div class="industry-info">
-      <h4 id="industry-title">Consumer Goods</h4>
-      <p id="industry-desc">
-        Las empresas de la industria necesitan más que un CRM tradicional: 
-      </p>
-      <ul id="industry-list">
-        <li>Unir B2B y B2C en un solo lugar</li>
-        <li>Maximizar la ejecución en el punto de venta</li>
-        <li>Tomar decisiones basadas en datos</li>
-        <li>Optimizar la productividad del equipo</li>
-      </ul>
-    </div>
-
-    <!-- Lista de industrias a la derecha -->
-    <ul class="industry-selector">
-      <li data-industry="Consumer Goods">Consumer Goods</li>
-      <li data-industry="High Tech">High Tech</li>
-      <li data-industry="Agriculture">Agriculture</li>
-      <li data-industry="Manufacturing">Manufacturing</li>
-      <li data-industry="Fintech">Fintech</li>
-      <li data-industry="Travel & Leisure">Travel & Leisure</li>
-    </ul>
-  </div>
-</section>
-<section class="salesforce-cta">
-  <!-- Imagen de fondo -->
-     <div class="cta-gradient"></div>
-  <img src="img/background-2.png" alt="Fondo" class="cta-bg">
-
-  <!-- Contenido centrado -->
-  <div class="cta-content">
-    <h2>Descubrí cómo Salesforce puede aumentar tus ventas en semanas</h2>
-    <p>+120 proyectos implementados en LATAM | Partners oficiales Salesforce</p>
-
-    <!-- Formulario centrado -->
-<form class="contact-form cta-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5w000003XOQ6" method="POST">
-
-  <!-- Campos obligatorios de Salesforce -->
-  <input type="hidden" name="oid" value="00D5w000003XOQ6">
-  <input type="hidden" name="retURL" value="https://cambalachetechnologies.github.io/landingpage/subpaginas/gracias">
-  <input type="hidden" name="lead_source" value="Landing">
-
-  <!-- Campos del formulario con validaciones HTML5 -->
-  <input type="text" name="first_name" placeholder="Nombre" required pattern="[A-Za-z\s]+" title="Ingrese solo letras">
-  <input type="text" name="last_name" placeholder="Apellido" required pattern="[A-Za-z\s]+" title="Ingrese solo letras">
-  <input type="email" name="email" placeholder="Correo" required
-    pattern="^[a-zA-Z0-9._%+-]+@(?!gmail\.com$)(?!yahoo\.com$)(?!hotmail\.com$)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-    title="Ingrese un correo empresarial, no se aceptan Gmail, Hotmail o Yahoo">
-  <input type="text" name="company" placeholder="Empresa">
-  <textarea name="description" placeholder="Mensaje" rows="4"></textarea>
-
-  <button type="submit">Hablar con un especialista</button>
-</form>
-
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="footer-left">
-    <!-- Logos -->
-    <div class="footer-logos">
-      <img src="img/ctech1920png 1.png" alt="Logo Cambalache">
-      <img src="img/image 1.png" alt="Logo Partner">
-    </div>
-
-    <!-- Frase -->
-    <p class="footer-tagline">Somos tu socio estratégico en la transformación digital.</p>
-
-    <!-- Redes sociales -->
-<div class="footer-socials">
-  <a href="https://www.linkedin.com/company/cambalachetechnologies/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
-    <img src="img/linkedin.png" alt="LinkedIn">
-  </a>
-  <a href="https://www.instagram.com/cambalachetechnologies/" target="_blank" rel="noopener noreferrer">
-    <img src="img/instagram.png" alt="Instagram">
-  </a>
-</div>
-
-  </div>
-
-  <div class="footer-right">
-    <h4>Contacto</h4>
-    <ul>
-      <li>
-        <img src="img/mail.png" alt="Correo">
-        <span>hablemos@c-tech.com.ar</span>
-      </li>
-      <li>
-        <img src="img/phone.png" alt="Teléfono">
-        <span>+54 9 11 5124-6444</span>
-      </li>
-      <li>
-        <img src="img/map.png" alt="Ubicación">
-        <span>Buenos Aires, Argentina</span>
-      </li>
-    </ul>
-  </div>
-</footer>
-
-
-
-
-
-<script src="javascript/industries.js"></script>
-</body>
 </body>
 </html>
